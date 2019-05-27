@@ -8,6 +8,9 @@
 }
 
 .RPGtitle {
+    background-color: teal;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    margin-bottom: 1rem;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -15,7 +18,7 @@
 }
 
 #titleText {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .heroes {
@@ -38,17 +41,61 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    width: 15vw;
+    height: 25vh;
 }
 .hero {
     border: 1px solid green;
     border-radius: 50%;
+    color: cyan;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
 }
 .villain {
     border: 1px solid red;
     border-radius: 50%;
+    color: red;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+
 }
 img {
-    border-radius: 50%;
+    position: relative;
+    left: 10%;
     height: 30vh;
     width: 10vw;
+}
+h2 {
+    font-size: 1rem;
+    position: relative;
+    right: 33%;
+    font-weight: bold;
+}
+h3 {
+    font-size: 1rem;
+    position: relative;
+    right: 44%;
+    top: 40%;
+    font-weight: bold;
+}
+.battleArena {
+    display: flex;
+    flex-direction: row;
+}
+.heroSpot {
+    margin-left: auto;
+}
+.villainSpot {
+    margin-right: auto;
+}
+.middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#restart {
+    display: none;
+}
+#attack {
+    display: none;
 }
