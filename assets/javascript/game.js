@@ -39,26 +39,160 @@ var fulgore = {
     hp: 180,
     ap: 20
 }
+var heroCounter = 0;
+var villainCounter = 0;
+var hero;
+var villain;
+// Setting Initial HP
+
+$("#kimwuHP").text(kimwu.hp);
+$("#thunderHP").text(thunder.hp);
+$("#aganosHP").text(aganos.hp);
+$("#spinalHP").text(spinal.hp);
+$("#shadowjagoHP").text(shadowjago.hp);
+$("#fulgoreHP").text(fulgore.hp);
 
 // Use appendTo to move characters around
 
-$(".hero").on("click", function(){
-    if (!heroChosen){
+$(".hero").on("click", function () {
+    if (!heroChosen) {
+        hero = $(this).attr("id");
         $(this).appendTo(".heroSpot");
         heroChosen = true;
-        $("#results").text("Now choose your first opponent!");
+        if (!villainChosen) {
+            $("#results").text("Now choose your opponent!");
+        }
+        else {
+            $("#results").text("Fight on!");
+            $("#attack").css("display", "block");
+        }
+        $(".hero").each(function (index) {
+            if ($(this).attr("id") != hero) {
+                $(this).css("border-color", "grey");
+            }
+        })
     }
 })
 
-$(".villain").on("click", function(){
-    if (!villainChosen){
+$(".villain").on("click", function () {
+    if (!villainChosen) {
+        villain = $(this).attr("id");
         $(this).appendTo(".villainSpot");
         villainChosen = true;
         $("#results").text("Fight on!");
-        $("#attack").attr('display', 'block');
+        $("#attack").css('display', 'block');
+        $(".villain").each(function (index) {
+            if ($(this).attr("id") != villain) {
+                $(this).css("border-color", "grey");
+            }
+        })
     }
 })
-// Use appendTo in the restart function, clear object's stats
+
+// Adding/subtracting HP on attack
 
 
-// Adding/subtracting HP
+$("#attack").on("click", function () {
+    if (villainChosen && heroChosen) {
+        if (hero == 'kimwu' && villain == 'spinal') {
+            spinal.hp -= kimwu.ap;
+            kimwu.ap += kimwu.increase;
+            kimwu.hp -= spinal.ap;
+        }
+        else if (hero == 'kimwu' && villain == 'shadowjago') {
+            shadowjago.hp -= kimwu.ap;
+            kimwu.ap += kimwu.increase;
+            kimwu.hp -= shadowjago.ap;
+        }
+        else if (hero == 'kimwu' && villain == 'fulgore') {
+            fulgore.hp -= kimwu.ap;
+            kimwu.ap += kimwu.increase;
+            kimwu.hp -= fulgore.ap;
+        }
+        else if (hero == 'thunder' && villain == 'spinal') {
+            spinal.hp -= thunder.ap;
+            thunder.ap += thunder.increase;
+            thunder.hp -= spinal.ap;
+        }
+        else if (hero == 'thunder' && villain == 'shadowjago') {
+            shadowjago.hp -= thunder.ap;
+            thunder.ap += thunder.increase;
+            thunder.hp -= shadowjago.ap;
+        }
+        else if (hero == 'thunder' && villain == 'fulgore') {
+            fulgore.hp -= thunder.ap;
+            thunder.ap += thunder.increase;
+            thunder.hp -= fulgore.ap;
+        }
+        else if (hero == 'aganos' && villain == 'spinal') {
+            spinal.hp -= aganos.ap;
+            aganos.ap += aganos.increase;
+            aganos.hp -= spinal.ap;
+        }
+        else if (hero == 'aganos' && villain == 'shadowjago') {
+            shadowjago.hp -= aganos.ap;
+            aganos.ap += aganos.increase;
+            aganos.hp -= shadowjago.ap;
+        }
+        else if (hero == 'aganos' && villain == 'fulgore') {
+            fulgore.hp -= aganos.ap;
+            aganos.ap += aganos.increase;
+            aganos.hp -= fulgore.ap;
+        }
+    }
+    $("#kimwuHP").text(kimwu.hp);
+    $("#thunderHP").text(thunder.hp);
+    $("#aganosHP").text(aganos.hp);
+    $("#spinalHP").text(spinal.hp);
+    $("#shadowjagoHP").text(shadowjago.hp);
+    $("#fulgoreHP").text(fulgore.hp);
+    hpChecker();
+    winOrLoss();
+})
+
+// function to check HP
+
+function hpChecker() {
+    var heroHP = $(".heroSpot h3").text();
+    var villainHP = $(".villainSpot h3").text();
+
+    if (heroHP <= 0) {
+        $("#attack").css("display", "none");
+        heroChosen = false;
+        $("#" + hero).detach();
+        $("#results").text("Choose a new hero!");
+        $(".hero").each(function (index) {
+            $(this).css("border-color", "green");
+        })
+        heroCounter++;
+    }
+
+    if (villainHP <= 0) {
+        $("#attack").css("display", "none");
+        villainChosen = false;
+        $("#" + villain).detach();
+        $("#results").text("Choose a new opponent!");
+        $(".villain").each(function (index) {
+            $(this).css("border-color", "red");
+        })
+        villainCounter++;
+    }
+
+}
+
+function winOrLoss() {
+    if (heroCounter == 3) {
+        $("#attack").css("display", "none");
+        $("#results").text("Game over! Play again?");
+        $("#restart").css("display", "block");
+    }
+    if (villainCounter == 3) {
+        $("#attack").css("display", "none");
+        $("#results").text("You win!");
+        $("#restart").css("display", "block");
+    }
+}
+
+// Ugly reset function, resetting global variables
+
+$("")
