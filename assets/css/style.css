@@ -49,20 +49,20 @@
     border: 1px solid green;
     border-radius: 50%;
     color: cyan;
-    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .villain {
     border: 1px solid red;
     border-radius: 50%;
     color: red;
-    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 }
 img {
     position: relative;
-    left: 10%;
-    height: 30vh;
-    width: 10vw;
+    left: 25%;
+    height: 100%;
+    width: 100%;
 }
 h2 {
     font-size: 1rem;
