@@ -195,4 +195,6 @@ function winOrLoss() {
 
 // Ugly reset function, resetting global variables
 
-$("")
+$("#restart").on("click", function(){
+    location.reload();
+})
