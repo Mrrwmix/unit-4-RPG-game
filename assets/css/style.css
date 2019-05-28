@@ -39,6 +39,7 @@
 }
 .character {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -60,22 +61,20 @@
 }
 img {
     position: relative;
-    left: 25%;
     height: 100%;
-    width: 100%;
+    width: 85%;
 }
 h2 {
-    font-size: 1rem;
+    font-size: 90%;
     position: relative;
-    right: 33%;
     font-weight: bold;
+    bottom: 50%;
 }
 h3 {
-    font-size: 1rem;
+    font-size: 90%;
     position: relative;
-    right: 44%;
-    top: 40%;
     font-weight: bold;
+    bottom: 25%;
 }
 .battleArena {
     display: flex;
