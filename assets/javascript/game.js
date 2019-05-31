@@ -5,21 +5,21 @@ var kimwu = {
     id: 'kimwu',
     hp: 120,
     ap: 30,
-    increase: 20
+    increase: 35
 }
 
 var thunder = {
     id: 'thunder',
     hp: 150,
     ap: 20,
-    increase: 18
+    increase: 30
 }
 
 var aganos = {
     id: 'aganos',
     hp: 180,
     ap: 10,
-    increase: 15
+    increase: 25
 }
 
 var spinal = {
@@ -59,6 +59,8 @@ $(".hero").on("click", function () {
         hero = $(this).attr("id");
         $(this).appendTo(".heroSpot");
         heroChosen = true;
+        $(".heroSpot").css("border-color",  "rgba(00, 128, 00, 1.0)");
+        $(".heroSpot").css("background",  "rgba(00, 128, 00, 1.0)");
         if (!villainChosen) {
             $("#results").text("Now choose your opponent!");
         }
@@ -79,6 +81,8 @@ $(".villain").on("click", function () {
         villain = $(this).attr("id");
         $(this).appendTo(".villainSpot");
         villainChosen = true;
+        $(".villainSpot").css("border-color", "rgba(255, 0, 0, 1.0)");
+        $(".villainSpot").css("background", "rgba(255, 0, 0, 1.0)");
         $(".villain").each(function (index) {
             if ($(this).attr("id") != villain) {
                 $(this).css("border-color", "grey");
@@ -165,6 +169,8 @@ function hpChecker() {
         $("#attack").css("display", "none");
         heroChosen = false;
         $("#" + hero).detach();
+        $(".heroSpot").css("border-color",  "rgba(00, 128, 00, 0.0)");
+        $(".heroSpot").css("background",  "rgba(00, 128, 00, 0.0)");
         $("#results").text("Choose a new hero!");
         $(".hero").each(function (index) {
             $(this).css("border-color", "green");
@@ -176,6 +182,8 @@ function hpChecker() {
         $("#attack").css("display", "none");
         villainChosen = false;
         $("#" + villain).detach();
+        $(".villainSpot").css("border-color", "rgba(255, 0, 0, 0.0)");
+        $(".villainSpot").css("background", "rgba(255, 0, 0, 0.0)");
         $("#results").text("Choose a new opponent!");
         $(".villain").each(function (index) {
             $(this).css("border-color", "red");

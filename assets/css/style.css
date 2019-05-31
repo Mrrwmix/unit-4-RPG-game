@@ -88,14 +88,16 @@ h3 {
     flex-direction: row;
 }
 .heroSpot {
-    border: 1px solid green;
-    background: green;
+    border: 1px solid;
+    border-color: rgba(00, 128, 00, 0.0);
+    background: rgba(00, 128, 00, 0.0);
     border-radius: 25%;
     margin-left: auto;
 }
 .villainSpot {
-    border: 1px solid crimson;
-    background: red;
+    border: 1px solid;
+    border-color: rgba(255, 0, 0, 0.0);
+    background: rgba(255, 0, 0, 0.0);
     border-radius: 25%;
     margin-right: auto;
 }
