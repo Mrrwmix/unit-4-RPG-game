@@ -8,7 +8,7 @@
 }
 
 .RPGtitle {
-    background-color: teal;
+    background:rgba(58, 147, 150, 0.85);
     text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
     margin-bottom: 1rem;
     display: flex;
@@ -19,19 +19,24 @@
 
 #titleText {
     font-size: 2rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'KillerInstinct2', 'Verdana', 'serif';
 }
 .heroes {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    padding: 1rem;
 }
 .villains {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    padding: 1rem;
 }
 .charSelect {
+    background:rgba(58, 147, 150, 0.85);
+    border-radius: 10%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,12 +52,14 @@
     height: 25vh;
 }
 .hero {
+    background: azure;
     border: 1px solid green;
     border-radius: 50%;
     color: cyan;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .villain {
+    background: lightslategray;
     border: 1px solid red;
     border-radius: 50%;
     color: red;
@@ -81,9 +88,15 @@ h3 {
     flex-direction: row;
 }
 .heroSpot {
+    border: 1px solid green;
+    background: green;
+    border-radius: 25%;
     margin-left: auto;
 }
 .villainSpot {
+    border: 1px solid crimson;
+    background: red;
+    border-radius: 25%;
     margin-right: auto;
 }
 .middle {
@@ -98,3 +111,30 @@ h3 {
 #attack {
     display: none;
 }
+#results {
+    font-size: 2rem;
+    padding: 1rem;
+}
+body {
+    background: url("../images/KI.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: 'KillerInstinct2', 'Verdana', 'serif';
+}
+
+html {
+    height: 100%;
+}
+
+@font-face {
+    font-family: 'KillerInstinct2';
+    src: url('../font/killerinstinct2v3.5.eot');
+    src: url('../font/killerinstinct2v3.5.eot?#iefix') format('embedded-opentype'),
+         url('../font/killerinstinct2v3.5.woff') format('woff'),
+         url('../font/killerinstinct2v3.5.ttf') format('truetype'),
+         url('../font/killerinstinct2v3.5.svg#KillerInstinct2') format('svg');
+  }
+  
+  .fontpro,.fontpro-14759 {
+    font-family: 'KillerInstinct2',sans-serif;
+  }

@@ -12,14 +12,14 @@ var thunder = {
     id: 'thunder',
     hp: 150,
     ap: 20,
-    increase: 15
+    increase: 18
 }
 
 var aganos = {
     id: 'aganos',
     hp: 180,
     ap: 10,
-    increase: 10
+    increase: 15
 }
 
 var spinal = {
@@ -31,13 +31,13 @@ var spinal = {
 var shadowjago = {
     id: 'shadowjago',
     hp: 150,
-    ap: 35
+    ap: 45
 }
 
 var fulgore = {
     id: 'fulgore',
     hp: 180,
-    ap: 20
+    ap: 38
 }
 var heroCounter = 0;
 var villainCounter = 0;
@@ -79,13 +79,18 @@ $(".villain").on("click", function () {
         villain = $(this).attr("id");
         $(this).appendTo(".villainSpot");
         villainChosen = true;
-        $("#results").text("Fight on!");
-        $("#attack").css('display', 'block');
         $(".villain").each(function (index) {
             if ($(this).attr("id") != villain) {
                 $(this).css("border-color", "grey");
             }
         })
+    }
+    if (villainChosen && heroChosen){
+        $("#attack").css('display', 'block');
+        $("#results").text("Fight on!");
+    }
+    if (villainChosen && !heroChosen){
+        $("#results").text("Choose a hero!");
     }
 })
 
@@ -181,12 +186,17 @@ function hpChecker() {
 }
 
 function winOrLoss() {
-    if (heroCounter == 3) {
+    if (heroCounter == 3 && villainCounter == 3){
+        $("#attack").css("display", "none");
+        $("#results").text("Double KO! Play again?");
+        $("#restart").css("display", "block");
+    }
+    else if (heroCounter == 3) {
         $("#attack").css("display", "none");
         $("#results").text("Game over! Play again?");
         $("#restart").css("display", "block");
     }
-    if (villainCounter == 3) {
+    else if (villainCounter == 3) {
         $("#attack").css("display", "none");
         $("#results").text("You win!");
         $("#restart").css("display", "block");
